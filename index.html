@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="TipCloud Development Team">
+
+        <title>Vox Multis</title>
+
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="resources/vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="resources/vendors/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" href="resources/vendors/font-awesome-4.3.0/css/font-awesome.min.css">
+
+        <meta name="description" content="Vox Multis is the voice of the masses, an uncensored audio stream from users around the world.">
+        <meta name="keywords" content="Vox Multis, VoxMultis, Vox Populi, soapbox, voice of the many, voice of the people, public radio, underground, pirate radio, uncensored, audio, rants, raves, music, art, culture, San Fransisco, Bay Area, Los Angeles, New York, Chicago">
+        <meta name="author" content="TipCloud Development Team, Sys0perator">
+
+        <script type="text/javascript" src="resources/js/browserDetect.js"></script>
+        <script type="text/javascript" src="resources/vendors/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="resources/vendors/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="resources/vendors/js/binary.min.js"></script>
+        <script type="text/javascript" src="resources/js/index.js"></script>
+
+    </head>
+
+    <body onload = "jumpScroll(); agreement();">
+        <div id = "header">
+        <input type="button" class = "nav" value = "The Wall" onclick="changeRoom(0)" />
+        <input type="button" class = "nav" value = "Confessional" onclick="changeRoom(1)" />
+        <input type="button" class = "nav" value = "Morpheus" onclick="changeRoom(2)" />
+        <input type="button" class = "nav" style = "float:right;" value = "Sign in" onclick="login()"/>
+        <input type="button" class = "nav" style = "float:right;" value = "About VM" data-toggle="modal" data-target="#about_modal" />
+        <input type="button" class = "nav" style = "float:right;" value = "Submit Wall Art" data-toggle="modal" data-target="#submitArt_modal"/>
+
+        <p class = "title">Vox Multis - The Voice of the Masses</p>
+
+            <!--LOGIN DROPDOWN-->
+            <div id="login_dropdown">
+                <section class="loginBody">
+                    <!-- Username & Password Login form -->
+                    <div class="user_login">
+                        <form action = "resources/php/login.php">
+                            <input type="email" id="email_login" class = "first_email" placeholder = "you@yoursite.com" required/>
+                            <input type="password" placeholder = "passphrase" required/>
+                            <div id="login_buttons">
+                                <input type = "submit" id = "login_button" class = "nav" value = "Log in" />
+                                <a href = "#reg_modal" onclick="login()" data-toggle="modal" data-target="#reg_modal" class = "linkButton" style="margin-left:5px; margin-top:5px" name="reg_modal_trigger">Register</a>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <div style = "text-align:right;">
+                                <label for = "login_remember" style = "font-size:12px;font-weight:200;">Remember me</label>
+                                <input type = "checkbox" id = "login_remember"></input>       
+                                <a href="#" class="forgot" style = "float:left;margin-top:3px;">Forgot password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+        </div> <!--end Header -->
+
+        <div id = "content">
+            <!--BackgroundContent-->
+        </div>
+
+<!--OPENING AGREEMENT MODAL-->
+<div id="oa_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style = "text-align:center;">Vox Multis</h4>
+            </div>
+            <div class="modal-body">
+                <p>Vox Multis, spearheaded by sys0perator, y0$H3k and XENU, is a worldwide, user-generated, streaming audio art project that provides a platform for free speech and discussion.</p>
+                <p> To start the audio-streaming service, please indicate that you have read and agree with our <a href="#eula_modal" id="eula_trigger" data-toggle="modal" data-target="#eula_modal">END-USER AGREEMENT</a></p>
+            </div>
+            <div class="modal-footer" style = "text-align:center">
+                 <button type="button" onclick="escape()">Disagree</button>
+                 <button type="button" iD = "agree_button" onclick ="startWallService()" data-dismiss="modal" style = "margin-left:20px">I agree</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!--WALL TICKET MODAL-->
+<div id="ticket_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                <h4 class="modal-title">Ticket Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ticket Body</p>
+            </div>
+            <div class="modal-footer">
+                 <button type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!--CONFESSIONAL TICKET MODAL-->
+<div id="confessional_ticket_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                <h4 class="modal-title">Confessional Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Confessional Body</p>
+            </div>
+            <div class="modal-footer">
+                 <button type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!--MORPHEUS TICKET MODAL-->
+<div id="morpheus_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                <h4 class="modal-title">Ticket Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Morpheus Body</p>
+                <input type = "button" value="Be it" onclick = "playMusic()">
+            </div>
+            <div class="modal-footer">
+                 <button type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!--ABOUT US MODAL-->
+<div id="about_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                <h4 class="modal-title">About Vox Multis</h4>
+            </div>
+            <div class="modal-body">
+                <p>Vox Multis, spearheaded by sys0perator, y0$H3k and XENU, is a worldwide, user-generated, streaming audio art project that provides a platform for free speech and discussion.<br><br>Vox Multis does not, nor will it ever, censor any of its user-generated content.<br><button type="button" data-toggle="modal" data-target="#eula_modal">End-User Agreement</button><br><br>Want to contact us? Please tell us about your technical problems, criticisms and praises at: <a href="mailto:admin@voxmultis.com">admin@voxmultis.com</a></p>
+            </div>
+            <div class="modal-footer">
+                 <button type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<!--SUBMIT ART MODAL-->
+<div id="submitArt_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                <h4 class="modal-title">Submit Art Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                Some text in the footer.
+            </div>
+        </div>
+  </div>
+</div>
+
+<!--USER REGISTRATION MODAL-->
+    <div id ="reg_modal" class = "modal fade" role = "dialog">
+        <div class = "modal-dialog">
+            <div class = "modal-content">
+                <div class = "modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                    <h4>Register a free Vox Multis user account:</h4>
+                    <p class = "reg_notice">This will allow you to keep your place in the queue without having to keep your browser window open. You can also arrange to be notified by e-mail 24 hours, 6 hours, and 1 hour before your turn at the mic arrives.</p>
+                </div>
+                <form action = "resources/php/register.php" method = "post">
+                <div class = "modal-body">
+                     <div id = "reg_email">
+                        Email address:
+                        <br><br>
+                        <p id = "reg_email_status" class = "reg_status">must be valid email address</p>
+                        <input type="email" class="first_email" id = "reg_email_1" placeholder = "you@yoursite.com" required/>
+                        <input type="email" id = "reg_email_2" placeholder = "confirm email" required/>
+                    </div>
+                    <div id = "reg_username">
+                        <br>
+                        Choose a display name:
+                        <br><br>
+                        <input type="text" id = "displayName" placeholder = "display name" required/>
+                    </div>
+                    <div id = "passphrase">
+                        <br>
+                        <p class = "reg_notice">For security purposes, Vox Multis uses passphrases with a minimum length of 14 characters. They must include one uppercase letter, one lowercase letter, and one symbol. The use of numbers is encouraged.</p><br>
+                        Choose a passphrase:<br><br>
+                        <p id = "reg_pass_status" class = "reg_status">passphrase must be at least 14 characters</p>
+                        <input type="password" class = "first_email" id = "reg_pass_1" placeholder = "MynameisSamthelankyman." required/>
+                        <input type="password" id = "reg_pass_2" placeholder = "confirm passphrase" required/>
+                        <br>
+                    </div>
+                    <div id = "reg_checkmark" style = "float:right;">
+                        <label for = "reg_checkbox" style = "font-weight:400;">I have read and agree to the Vox Multis <a href="#eula_modal" id="eula_trigger" data-toggle="modal" data-target="#eula_modal">end-user agreement</a></label>
+                        <input type = "checkbox" id = "reg_checkbox" style = "margin-left:10px;" required/>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div style = "text-align:center;">
+                        <br>
+                        <input type = "submit" id = "register_button" value = "register" class = "reg_submit"/>
+                        <br><br>
+                    </div>
+                </div>
+                </form>
+            <div class="modal-footer">
+                 <button type="button" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+<!--EULA MODAL-->
+<div id="eula_modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="image" class="close" data-dismiss="modal" src="resources/vendors/images/modal/close_icon.png"/>
+                <h4 class="modal-title">End-User Agreement</h4>
+            </div>
+            <div class="modal-body" style = "font-size:10px;">
+              <p>Last Modified: 5/24/2015<br><br>Vox Multis recognizes the value of the Internet as a platform for free speech and uncensored communication. To this end, Vox Multis encourages the responsible use of this platform in support of its mission. <br><br> Because we believe that the Internet should be an unregulated, worldwide vehicle for communication, information available to end-users will not be controlled. Therefore, Vox Multis adopts this policy governing the voluntary use of this platform and the Internet in order to facilitate free speech.<br><br>Vox Multis Rights and Responsibilities<br><br>It is the policy of Vox Multis to maintain an environment that promotes ethical and responsible conduct in fairness of usability and access by its end-users. To this end, Vox Multis retains the following rights and recognizes the following obligations:<br><br>*To log IP addresses in order to fairly divy up time between end-users.<br>*To remove a user account at any time and for any or no reason.<br>*Vox Multis absolves all responsibility for the conduct of its end-users and the content of their media as per nature of the project. Furthermore, Vox Multis absolves the responsibility to mediate or censor said media.<br><br>User Responsibilities<br><br>*The end-user certifies that s/he is the sole owner and producer of any media streamed or uploaded to the Vox Multis servers. Victims of intellectual property theft will not hold Vox Multis responsible for the media uploaded by its end-users.<br>*The end-user assumes full responsibility for the content of his/her streaming media or forum posts.<br>*The end-user will not hold Vox Multis or any of its subsidaries responsible for offensive media uploaded by other end-users.<br>*The end-user agrees that they use this platform at their own risk, and s/he absolves Vox Multis from any psychological, emotional, or mental harm incurred while consuming other users' streaming media.<br>*Use of the media provided by the end-users of Vox Multis is a privilege that offers a wealth of information about the true anonymous opinions of people from around the world.<br>*The end-user will NEVER give out information as to his/her actual name, address, email address, or identity.<br><br>Acceptable Use<br><br>All media submitted to this platform must be original and the property of the broadcaster. Pornographic material is allowed but frowned upon. Proper codes of conduct in electronic communication must be used. Extreme caution must always be taken in revealing any information of a personal nature. All communications and information accessible via the network should be assumed to be public property.<br><br>Unacceptable Use<br><br>Use of hate-speech and trolling is frowned upon. Giving out personal information is inappropriate. Giving out personal information about another person, including home address and phone number, is strictly prohibited. Any use of this platform for commercial or for-profit purposes is prohibited. Excessive use of the network for personal business shall be cause for account deletion. Users shall not intentionally seek information on, obtain copies of, or modify files, other data, or passwords belonging to other users, or misrepresent other users on the network. Hate speech, harassment, discriminatory remarks, and other antisocial behaviors are not prohibited on the network, but they are frowned upon.<br><br>*Use of this platform for any unlawful purpose is prohibited.<br><br>Disclaimer<br><br>Vox Multis cannot be held accountable for the information that is retrieved via the platform. If self-identification is given at will by the end-user, communications relating to or in support of illegal activities will be reported to the appropriate authorities.<br><br>*Vox Multis will not be responsible for any damages that you (the end-user) may suffer. Consume media at your own risk.<br>*Vox Multis reserves the right to change its policies and rules at any time.<br><br>By clicking any checkbox or button affirming that I have read this document, I hereby promise that I have read this document, that I will abide by the rules and I agree to the conditions stated herein.</p>
+            </div>
+            <div class="modal-footer">
+                 <button type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+        <footer id = "footer">
+                <input type="button" id = "ticket_modal_trigger" style="position:relative; left:292px; bottom:5px;" name="ticket_modal_trigger" data-toggle="modal" data-target="#ticket_modal" value = "Take a Ticket" onclick="audioOn()"/>
+            <div id = "footer_content">
+                <p class = "footerText">© 2015 Vox Multis - all rights reserved</p>
+                    <div class="wrapper">
+                        <a class="icon twitter" target="_blank" href="http://twitter.com/intent/tweet?status=VoxMultis.com - live, uncensored, streaming audio of people bitching and ranting, 24/7!"><span class="fa fa-twitter fa-2x"></span></a>
+                        <a class="icon facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.voxmultis.com"><span class="fa fa-facebook fa-2x"></span></a>
+                        <a class="icon reddit" target="_blank" href="http://www.reddit.com/submit?url=www.voxmultis.com&title=Vox Multis - Uncensored, streaming, user-generated radio!"><span class="fa fa-reddit fa-2x"></span></a>
+                        <a class="icon rss" target="_blank" href="www.VoxMultis.com/rss"><span class="fa fa-rss fa-2x"></span></a>
+                        <a class="icon email" href="mailto:?Subject=Hey! Check out the Vox Multis user-generated radio!&Body=Hey!%0D%0A%0D%0ACheck out this art project where users get five minutes to bitch, rant, or say whatever they want, totally uncensored! Even if you don't want to speak yourself, it's seriously entertaining. Enjoy! :)%0D%0A%0D%0Ahttp://www.VoxMultis.com"><span class="fa fa-envelope-o fa-2x"></span></a>
+                    </div>
+                <p class = "footerText">Vox Multis is powered by SHOUTcast.<br>DISCLAIMER: Vox Multis does not support or condone the views and opinions of its users,<br>nor does it, nor will it ever, censor the content of its user-generated streaming media.<br>Vox Multis is not responsible for the streaming content presented on this website.<br>All streaming content is owned and published by the end-user.</p>
+            </div>
+    </footer>
+    </body>
+
+</html>

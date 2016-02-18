@@ -1,0 +1,271 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+
+body{
+    background-color: black;
+    height: 720px;
+    width: 2755px;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: helvetica, sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+a, a:hover, a:visited{
+color:white;
+}
+
+#content{
+    width:2755px;
+    height:720px;
+    background-image:url("../images/Background_Vox_UC.jpg");
+    margin-top:30px;
+    margin-bottom:10px;
+}
+#header{
+    position:fixed;
+    width: 960px;
+    height: 20px;
+    color:white;
+    font-size: 12px;
+    text-align:center;
+    font-family:helvetica, sans-serif;
+    right:50%;
+    margin-right:-480px;
+    margin-top:-30px;
+}
+#footer{
+    width:960px;
+    height:80px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    font-family:helvetica, sans-serif;
+}
+.footerText{
+    font-size: 10px;
+    font-family: helvetica, sans-serif;
+    color:white;
+}
+#footer_content{
+  width:auto;
+  height:auto;
+  position:relative;
+  bottom:15px;
+}
+.nav{
+    position:relative; 
+    height:20px; 
+    float:left; 
+    border:2px solid white; 
+    margin: 5px;
+}
+.queue{
+    color:white;
+    position:relative;
+    left: 295px;
+}
+.title{
+    font-family: 'Lato', sans-serif;
+    display:inline; 
+    position:relative; 
+    top:4px; 
+    font-size:16px;
+    right:0px;
+}
+
+/* buttons */
+  
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button, .linkButton {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: transparent;
+  border-radius: 3px;
+  border: 0;
+  box-shadow: inset 0 0 0 2px #fff;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 600;
+  height: 20px;
+  letter-spacing: 0.225em;
+  line-height: 22px;
+  padding: 0 1em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+.button:hover, .linkButton:hover {
+    background-color: rgba(144, 144, 144, 0.45);
+    color:white;
+    text-decoration: none;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+button:active,
+.button:active, .linkButton:active {
+    background-color: rgba(144, 144, 144, 1);
+}
+
+/* User Login Dropdown */
+
+#login_dropdown{
+    display:none;
+    float:right;
+    position:absolute;
+    width:240px;
+    height:150px;
+    right:5px;
+    top: 30px;
+    background: black;
+    border-radius:4px;
+    border: 2px solid white;
+    color:white;
+}
+.loginBody{padding:10px;}
+
+input[type="email"],
+input[type="text"], 
+input[type="password"]{
+  display: block;
+  width:216px;
+  padding: 5px;
+  border:1px solid #A5AFA7;
+  border-radius:5px;
+  color:#666;}
+
+#login_buttons{
+  margin-top:5px;
+  margin-bottom:5px;
+  float:right;
+}
+
+#login_button{
+  background-color: darkred;
+}
+
+#login_button:hover{
+  background-color:red;
+}
+
+.first_email{
+  margin-bottom:10px;
+}
+
+/* Modal Menus */
+.modal-content {
+background-color: black;
+border:2px solid white;
+}
+
+.modal{
+  top:10%;
+  max-height:80%;
+  color:white;
+}
+
+.modal-header button, .modal-header button:hover{
+  border:none;
+  color:white;
+  background-color:transparent;
+}
+
+.reg_notice{
+  font-size:12px;
+}
+
+
+/* SOCIAL MEDIA ICONS */
+span{
+  padding-top:7px;
+}
+
+.wrapper{
+  width:244px;
+  height:35px;
+  position:relative;
+  left:363px;
+  margin-bottom:20px;
+}
+
+.icon{
+  display: inline-block;
+  margin-right:10px;
+  position: relative;
+  color: black;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  font-size: .7em;
+  background-color: #fff;
+  -moz-border-radius: 25%;
+  -webkit-border-radius: 25%;
+  border-radius: 25%;
+  box-shadow: 0px 3px 0px #bdbdbd, 0px 3px 10px #bababa;
+  -webkit-transition:background-color 250ms ease 0s;
+  transition:background-color 250ms ease 0s;
+}
+.icon.facebook, .icon.facebook:visited, .icon.twitter, .icon.twitter:visited .icon.reddit, .icon.reddit:visited, .icon.rss, .icon.rss:visited, .icon.email, .icon.email:visited{color:black;}
+.icon.facebook:hover{background-color: #3b5998; color:white;}
+.icon.twitter:hover{background-color: #4099ff; color:white;}
+.icon.reddit:hover{background-color: #ff5700; color:white;}
+.icon.rss:hover{background-color: #ff6600;color:white;}
+.icon.email:hover{background-color: #0072b1;color:white;}
+.icon:hover{
+  color: #fff;
+  box-shadow: 0px 3px 0px #686868, 0px 3px 10px #7e7e7e;
+}
+.icon:active{
+  box-shadow: inset 0px 1px 4px #3d3d3d, 0px 0px 0px #bdbdbd;
+  top: 3px;
+}
+
+.reg_status{
+  color:darkred;
+  display:inline;
+  float:right;
+}
+
+#eula_trigger{
+  text-decoration: underline;
+}
+
+#register_button:disabled{
+  background-color:gray;
+}
+#register_button{
+  background-color:darkred;
+  font-size: 1.4em;
+  height:1.6em;
+  padding-top:4px;
+}
+#register_button:hover{
+  background-color:red;
+}
+
+#agree_button{
+  background-color:darkgreen;
+}
+#agree_button:hover{
+  background-color:green;
+}
